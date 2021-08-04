@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, makeStyles, IconButton, SwipeableDrawer, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core"
-import { Menu as MenuIcon, HomeOutlined, Person } from "@material-ui/icons"
+import { Menu as MenuIcon, HomeOutlined, Person, Dialpad } from "@material-ui/icons"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,6 +59,14 @@ const TopHeader = () => {
                                 <Person />
                             </ListItemIcon>
                             <ListItemText primary="About Us" />
+                        </ListItem>
+                    </Link>
+                    <Link to="/pokemon">
+                        <ListItem>
+                            <ListItemIcon>
+                                <Dialpad />
+                            </ListItemIcon>
+                            <ListItemText primary="Pokemon" />
                         </ListItem>
                     </Link>
                 </List>

@@ -7,11 +7,20 @@ export const setData = (key, value) => {
 
 export const getData = () => {
 
-    return async (dispatch) => {
-        Api.get("pokemon").then(res => {
+    return async (dispatch, getState) => {
+        const { pokemon } = getState()
+        const { pagination: {
+            limit, offset
+        } } = pokemon
+        // console.log("getState", getState());
+        Api.get("pokemon", {
+            params: { limit, offset }
+        }).then(res => {
             const { data: { count, next, previous, results } } = res
-            // console.log("pokemon", res);
+            console.log("pokemon here", pokemon.pagination);
             const pagination = {
+                limit: pokemon.pagination.limit,
+                offset: pokemon.pagination.offset,
                 next,
                 prev: previous,
                 count

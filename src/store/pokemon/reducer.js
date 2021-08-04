@@ -5,7 +5,9 @@ const initalState = {
     pagination: {
         next: "",
         prev: "",
-        count: 0
+        count: 0,
+        limit: 100,
+        offset: 20
     },
     error: null
 }
