@@ -43,7 +43,7 @@ const TopHeader = () => {
                 onKeyDown={() => toogleOpen(false)}
             >
                 <List>
-                    <Link to="/" exact>
+                    <Link to="/">
                         <ListItem>
                             <ListItemIcon >
                                 <HomeOutlined />

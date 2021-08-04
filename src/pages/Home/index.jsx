@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, ButtonGroup, Grid, Typography, makeStyles } from '@material-ui/core';
 
 import { inc, dec } from "../../store/count/actions"
+import { getData } from "../../store/pokemon/actions"
 
 const useStyles = makeStyles((theme) => ({
     item: {
@@ -13,10 +14,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
-    const { count } = useSelector(state => state.count)
+    const { count: { count }, pokemon } = useSelector(state => state)
     const dispatch = useDispatch();
     const classes = useStyles()
-    console.log({ count });
+
+
+    const fetchPokemon = () => dispatch(getData())
+
+    useEffect(() => {
+        fetchPokemon();
+    }, []);
+    console.log({ pokemon });
     return (
         <Grid container
             direction="row"
