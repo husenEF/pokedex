@@ -24,7 +24,7 @@ const TopHeader = () => {
     const classes = useStyles();
     const [isOpen, toogleOpen] = useState(false)
 
-    return <Container maxWidth="lg">
+    return <>
         <AppBar position="static">
             <Toolbar>
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => toogleOpen(true)}>
@@ -64,7 +64,7 @@ const TopHeader = () => {
                 </List>
             </div>
         </SwipeableDrawer>
-    </Container>
+    </>
 }
 
 export default TopHeader
