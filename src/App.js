@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-import Home from "./pages/Home";
+import Layout from "./Layouts/Layout";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Layout>
+        <h4>halo</h4>
+      </Layout>
     </div>
   );
 }
