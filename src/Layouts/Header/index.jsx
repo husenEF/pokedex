@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
-import { AppBar, Container, Toolbar, Typography, Button, makeStyles, IconButton, SwipeableDrawer, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core"
+import { AppBar, Toolbar, Typography, Button, makeStyles, IconButton, SwipeableDrawer, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core"
 import { Menu as MenuIcon, HomeOutlined, Person } from "@material-ui/icons"
 
 
@@ -24,14 +24,14 @@ const TopHeader = () => {
     const classes = useStyles();
     const [isOpen, toogleOpen] = useState(false)
 
-    return <Container maxWidth="lg">
+    return <>
         <AppBar position="static">
             <Toolbar>
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => toogleOpen(true)}>
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" className={classes.title}>
-                    News
+                    Pokedex
                 </Typography>
                 <Button color="inherit">Login</Button>
             </Toolbar>
@@ -64,7 +64,7 @@ const TopHeader = () => {
                 </List>
             </div>
         </SwipeableDrawer>
-    </Container>
+    </>
 }
 
 export default TopHeader

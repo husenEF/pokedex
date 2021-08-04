@@ -11,9 +11,14 @@ const Layout = ({ children }) => {
         <TopHeader />
         <Container>
             <Content />
+            {children !== null && children}
         </Container>
         <Footer />
     </Router>
+}
+
+Layout.defaultProps = {
+    children: null
 }
 
 export default Layout
