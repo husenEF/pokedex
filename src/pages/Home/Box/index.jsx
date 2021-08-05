@@ -39,15 +39,19 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const Box = ({ title, color }) => {
+const Box = (props) => {
+  const { title, color, link, className, children } = props;
   const classes = useStyles();
+  const to = link || title.toLowerCase();
   return (
     // <Card className={classes[color]}>
-    <Card className={cslx(classes.root, classes[color])}>
+    <Card className={cslx(classes.root, classes[color], className)}>
       <CardContent>
-        <Link to={`/${title.toLowerCase()}`}>
-          <Typography>{title}</Typography>
-        </Link>
+        {children || (
+          <Link to={`/${to}`}>
+            <Typography>{title}</Typography>
+          </Link>
+        )}
       </CardContent>
     </Card>
   );
@@ -56,6 +60,7 @@ const Box = ({ title, color }) => {
 Box.defaultProps = {
   title: "",
   color: "blue",
+  link: null,
 };
 
 export default Box;
