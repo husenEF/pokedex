@@ -1,7 +1,7 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
 
-import { Home, About } from "../pages"
+import { Home, About, Pokemon } from "../pages"
 
 const Content = () => {
     return <Switch>
@@ -10,6 +10,9 @@ const Content = () => {
         </Route>
         <Route path="/about" >
             <About />
+        </Route>
+        <Route path="/pokemon">
+            <Pokemon />
         </Route>
     </Switch>
 }
