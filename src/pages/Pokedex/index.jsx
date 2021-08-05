@@ -35,10 +35,10 @@ const Pokedex = () => {
     if (loading) return <Spinner />;
     else {
       return Object.keys(data).map((e) => {
-        console.log({ data });
+        // console.log({ data });
         return (
-          <Grid item sm={6}>
-            <Box title={data[e].name} key={e} className={classes.box}>
+          <Grid item sm={6} key={e}>
+            <Box title={data[e].name} className={classes.box}>
               <BoxDetail name={data[e].name} />
             </Box>
           </Grid>

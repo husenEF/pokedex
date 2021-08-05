@@ -43,11 +43,14 @@ const Box = (props) => {
   const { title, color, link, className, children } = props;
   const classes = useStyles();
   const to = link || title.toLowerCase();
+  console.log({ children });
   return (
     // <Card className={classes[color]}>
     <Card className={cslx(classes.root, classes[color], className)}>
       <CardContent>
-        {children || (
+        {children ? (
+          children
+        ) : (
           <Link to={`/${to}`}>
             <Typography>{title}</Typography>
           </Link>
