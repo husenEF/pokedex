@@ -1,0 +1,61 @@
+import React from "react";
+import cslx from "clsx";
+import { Link } from "react-router-dom";
+
+import {
+  Card,
+  CardContent,
+  makeStyles,
+  Typography,
+  colors,
+} from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => {
+  console.log({ theme });
+  return {
+    root: {
+      justifyContent: "center,",
+      color: "white",
+    },
+    green: {
+      // backgroundColor: theme.palette
+      backgroundColor: colors.green.A200,
+    },
+    red: {
+      backgroundColor: colors.pink["200"],
+    },
+    blue: {
+      backgroundColor: colors.blue["200"],
+    },
+    purple: {
+      backgroundColor: colors.deepPurple[200],
+    },
+    yellow: {
+      backgroundColor: colors.yellow.A200,
+    },
+    brown: {
+      backgroundColor: colors.brown[200],
+    },
+  };
+});
+
+const Box = ({ title, color }) => {
+  const classes = useStyles();
+  return (
+    // <Card className={classes[color]}>
+    <Card className={cslx(classes.root, classes[color])}>
+      <CardContent>
+        <Link to={`/${title.toLowerCase()}`}>
+          <Typography>{title}</Typography>
+        </Link>
+      </CardContent>
+    </Card>
+  );
+};
+
+Box.defaultProps = {
+  title: "",
+  color: "blue",
+};
+
+export default Box;
