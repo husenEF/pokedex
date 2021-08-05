@@ -8,7 +8,7 @@ import Content from './Content'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: '#F5F7F8',
+        // backgroundColor: '#F5F7F8',
     },
     container: {
         backgroundColor: '#fff',
