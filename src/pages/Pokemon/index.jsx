@@ -31,7 +31,8 @@ const Pokemon = () => {
 
 
     useEffect(() => {
-        if (data.length > 0)
+        console.log("effect", { data });
+        if (Object.keys(data).length > 0)
             setLoading(false)
     }, [data])
 
@@ -45,11 +46,11 @@ const Pokemon = () => {
                 direction="row"
                 justifyContent="flex-start"
                 alignItems="flex-start">
-                {data.map((e, i) => {
+                {Object.keys(data).map((e, i) => {
                     return <Grid item className={classes.itemContainer} sm={6} md={4} key={i} lg={3}>
                         <Card className={classes.itemCard}>
                             <CardContent>
-                                <Typography variant="h4">{e.name}</Typography>
+                                <Typography variant="h4">{data[e].name}</Typography>
                             </CardContent>
                             <CardActions>
                                 <Button size="small" onClick={() => { }}>See Pokemon</Button>
@@ -64,7 +65,7 @@ const Pokemon = () => {
         }
     }
 
-    console.log({ pagination });
+    // console.log({ data, pagination });
     return <>
         <h3>Pokemon List</h3>
         {renderList()}

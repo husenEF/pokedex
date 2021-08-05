@@ -19,8 +19,6 @@ export const getData = () => {
             const { data: { count, next, previous, results } } = res
             console.log("pokemon here", pokemon.pagination);
             const pagination = {
-                limit: pokemon.pagination.limit,
-                offset: pokemon.pagination.offset,
                 next,
                 prev: previous,
                 count
