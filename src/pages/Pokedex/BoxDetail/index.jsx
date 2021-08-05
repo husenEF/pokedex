@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Grid, Typography } from "@material-ui/core";
 
 import Api from "../../../service/api";
-import { Spinner } from "../../../Components";
-import { Typography } from "@material-ui/core";
+import { Spinner, Tags } from "../../../Components";
 
 const BoxDetail = ({ name }) => {
   //   const rende
@@ -22,12 +22,27 @@ const BoxDetail = ({ name }) => {
     fetchDetail();
   }, []);
 
+  const renderTag = (tags) => {
+    return tags.map((e) => <Tags title={e.type.name} />);
+  };
+
   if (loading) return <Spinner />;
   console.log(`here ${name}`, { data });
   return (
-    <>
-      <Typography>{name}</Typography>
-    </>
+    <Grid container>
+      <Grid item xs={12}>
+        <Typography>{name}</Typography>
+      </Grid>
+      <Grid item xs={6}>
+        {renderTag(data.types)}
+      </Grid>
+      <Grid item xs={6}>
+        <img
+          src={data.sprites.other["official-artwork"].front_default}
+          style={{ maxHeight: 100 }}
+        />
+      </Grid>
+    </Grid>
   );
 };
 
