@@ -1,7 +1,9 @@
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => {
   return {
-    gridContainer: {},
+    gridContainer: {
+      // backgroundColor: "red",
+    },
     tags: {
       display: "flex",
       flexDirection: "column",
@@ -10,6 +12,9 @@ const useStyles = makeStyles((theme) => {
     images: {
       display: "flex",
       justifyContent: "flex-end",
+    },
+    link: {
+      color: theme.palette.common.white,
     },
   };
 });

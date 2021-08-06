@@ -4,7 +4,6 @@ import { Grid, makeStyles } from "@material-ui/core";
 
 import { getData } from "../../store/pokemon/actions";
 import { Spinner } from "../../Components";
-import Box from "../Home/Box";
 import BoxDetail from "./BoxDetail";
 
 const useStyles = makeStyles((theme) => {
@@ -29,7 +28,6 @@ const Pokedex = () => {
   useEffect(() => {
     if (Object.keys(data).length > 0) setLoadng(false);
   }, [data]);
-  console.log({ pokemon: data });
 
   const renderList = () => {
     if (loading) return <Spinner />;
@@ -38,9 +36,9 @@ const Pokedex = () => {
         // console.log({ data });
         return (
           <Grid item sm={6} key={e}>
-            <Box title={data[e].name} className={classes.box}>
+            {/* <Box title={data[e].name} className={classes.box}> */}
               <BoxDetail name={data[e].name} />
-            </Box>
+            {/* </Box> */}
           </Grid>
         );
       });

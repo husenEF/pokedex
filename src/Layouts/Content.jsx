@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { Home, About, Pokemon, Pokedex } from "../pages";
+import { Home, About, Pokemon, Pokedex, PokemonDetail } from "../pages";
 
 const Content = () => {
   return (
@@ -11,6 +11,9 @@ const Content = () => {
       </Route>
       <Route path="/about">
         <About />
+      </Route>
+      <Route path="/pokemon/:id">
+        <PokemonDetail />
       </Route>
       <Route path="/pokemon">
         <Pokemon />
