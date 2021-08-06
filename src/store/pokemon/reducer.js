@@ -23,6 +23,15 @@ const reducer = (state = initalState, action) => {
 
     case SET_DETAIL:
       const { data } = state;
+      const newData = Object.keys(data).map((e) => {
+        const name = data[e].name;
+        if (name === action.key) {
+          const currentData = data.e;
+
+          currentData.push({ detail: action.value });
+        }
+        
+      });
       return state;
     default:
       return state;
