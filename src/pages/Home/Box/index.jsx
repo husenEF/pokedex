@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme) => {
       justifyContent: "center,",
       color: "white",
     },
+    cardContent: {
+      padding: theme.spacing(1),
+      "&:last-child": {
+        padding: theme.spacing(1),
+      },
+    },
     green: {
       // backgroundColor: theme.palette
       backgroundColor: colors.green.A200,
@@ -39,15 +45,22 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const Box = ({ title, color }) => {
+const Box = (props) => {
+  const { title, color, link, className, children } = props;
   const classes = useStyles();
+  const to = link || title.toLowerCase();
+  console.log({ children });
   return (
     // <Card className={classes[color]}>
-    <Card className={cslx(classes.root, classes[color])}>
-      <CardContent>
-        <Link to={`/${title.toLowerCase()}`}>
-          <Typography>{title}</Typography>
-        </Link>
+    <Card className={cslx(classes.root, classes[color], className)}>
+      <CardContent className={classes.cardContent}>
+        {children ? (
+          children
+        ) : (
+          <Link to={`/${to}`}>
+            <Typography>{title}</Typography>
+          </Link>
+        )}
       </CardContent>
     </Card>
   );
@@ -56,6 +69,7 @@ const Box = ({ title, color }) => {
 Box.defaultProps = {
   title: "",
   color: "blue",
+  link: null,
 };
 
 export default Box;

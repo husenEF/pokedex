@@ -32,3 +32,9 @@ export const getData = () => {
         })
     }
 }
+
+export const getDetail= (name)=>{
+    return async (dispatch)=>{
+        
+    }
+}
