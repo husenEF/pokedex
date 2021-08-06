@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Grid, Typography } from "@material-ui/core";
 
 import Api from "../../../service/api";
 import { Spinner, Tags } from "../../../Components";
 
+import useStyles from "./style";
+
 const BoxDetail = ({ name }) => {
-  //   const rende
+  const classes = useStyles();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -27,16 +30,17 @@ const BoxDetail = ({ name }) => {
   };
 
   if (loading) return <Spinner />;
-  console.log(`here ${name}`, { data });
   return (
-    <Grid container>
+    <Grid container className={classes.gridContainer}>
       <Grid item xs={12}>
-        <Typography>{name}</Typography>
+        <Typography variant="h5" component={Link} to={`/pokemon/${name}`}>
+          {name}
+        </Typography>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={6} className={classes.tags}>
         {renderTag(data.types)}
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={6} className={classes.images}>
         <img
           src={data.sprites.other["official-artwork"].front_default}
           style={{ maxHeight: 100 }}

@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme) => {
       justifyContent: "center,",
       color: "white",
     },
+    cardContent: {
+      padding: theme.spacing(1),
+      "&:last-child": {
+        padding: theme.spacing(1),
+      },
+    },
     green: {
       // backgroundColor: theme.palette
       backgroundColor: colors.green.A200,
@@ -47,7 +53,7 @@ const Box = (props) => {
   return (
     // <Card className={classes[color]}>
     <Card className={cslx(classes.root, classes[color], className)}>
-      <CardContent>
+      <CardContent className={classes.cardContent}>
         {children ? (
           children
         ) : (
